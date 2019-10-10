@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>class与style的绑定</title>
+</head>
+<body>
+    <!-- 定义样式 -->
+
+<style>
+  .active{
+      color:green;
+  }
+  .delete{
+      background: red;
+  }
+  .error{
+      font-size: 30px;
+  }
+
+</style>
+<div id ="app">
+
+
+    <h2></h2>
+
+
+
+</div>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+
+var vm = new vue({
+    el:'#app',
+    data:{
+
+        activeClass:'active',
+        isDelete:true,
+        hasError:false,
+        activeColor:'red',
+        fontSize:20
+    }
+});
+
+
+
+</script>
+</body>
+
+</html>
