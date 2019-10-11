@@ -1,50 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> v-model 表单 双向绑定</title>
 </head>
+
 <body>
-    
+
     <div id="app">
 
-    <form @submit.prevent='submitForm'>
+        <form @submit.prevent='submitForm'>
+            页面条数<input type="text" v-model="index">
+            <br>
+            分页页码<input type="text" v-model="page">
 
-
-
-    </form>
+            <button type="submit"> 提交</button>
+        </form>
 
     </div>
 
     <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../js/request.js"></script>
+    <script src="../node_modules/axios/dist/axios.js"></script>
 
-    <script >
-    var  vm = new vue({
+    <script>
+        var vm = new Vue({
 
-        el:'#app',
+            el: '#app',
 
-        methods:{
+            data: {
+                index: 1,
+                page: 1
 
-            submitForm:function(){
-// ajax 请求
+            },
+            methods: {
+
+                submitForm: function () {
+                    // ajax 请求
+
+                    var requestVo = {
+
+                        limit: this.index,
+                        page: this.page
+                    }
+
+                    console.log(JSON.stringify(requestVo))
+                    axios.post(productList, JSON.stringify(requestVo), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } }).then(function (response) {
+                        console.log(response);
+                       var data =response.data;
+                        if (data.code == 0) {
+                            console.log(data.result);
+                        } else {
+                            alert(data.meaasge);
+                        }
+                    });
 
 
 
+                    // $.ajax(
+                    //     {
+
+                    //         url:productList,
+                    //         type:'post',
+                    //         data:JSON.stringify(requestVo),
+                    //         contentType:'application/json;charset=UTF-8',
+                    //         success:function(data){
+                    //                 console.log("查询成功");
+                    //                 if(data.code==0){
+                    //                   console.log(data.result);
+                    //                 }else{
+                    //                     alert(data.meaasge);
+                    //                 }
+
+                    //         }
+
+
+
+
+
+                    //     }
+                    // );
+
+                }
             }
-        }
 
 
-    });
-    
-    
-    
-    
-    
+        });
+
+
+
+
+
     </script>
 
 
 
 </body>
+
 </html>
