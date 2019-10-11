@@ -10,7 +10,7 @@
     
     <div id="app">
 
-    <form @submit.>
+    <form @submit.prevent='submitForm'>
 
 
 
@@ -20,7 +20,29 @@
 
     <script src="../node_modules/vue/dist/vue.js"></script>
 
-    <script ></script>
+    <script >
+    var  vm = new vue({
+
+        el:'#app',
+
+        methods:{
+
+            submitForm:function(){
+// ajax 请求
+
+
+
+            }
+        }
+
+
+    });
+    
+    
+    
+    
+    
+    </script>
 
 
 
