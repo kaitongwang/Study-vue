@@ -13,7 +13,7 @@
         .box {
             width: 200px;
             height: 200px;
-            background:red;
+            background: red;
         }
     </style>
 
@@ -24,14 +24,14 @@
 
         <input type="checkbox" v-model="seen">勾选后显示红色
 
-    <div v-if="seen" class="box"></div>
+        <div v-if="seen" class="box"></div>
 
-    <div v-else ="seen">红色小块隐藏</div>
+        <div v-else="seen">红色小块隐藏</div>
 
-    </div>
 
-    <h2> v- show  条件渲染</h2>
-     <div v-show="seen" class="box"></div>
+
+        <h2> v- show 条件渲染</h2>
+        <div v-show="seen" class="box"></div>
 
 
 
