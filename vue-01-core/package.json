@@ -1,0 +1,14 @@
+{
+  "name": "vue-01-core",
+  "version": "1.0.0",
+  "description": "vue学习",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kt.w",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
+}

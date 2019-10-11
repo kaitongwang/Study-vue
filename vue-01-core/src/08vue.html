@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for 列表渲染</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+
+        <h2>1. 迭代数组</h2>
+        <ul>
+            <li v-for="(e,index) in emps" :key="index">
+                编号：{{index+1}} ，姓名：{{e.name}} , 工资：{{e.salary}}
+            </li>
+        </ul>
+        <br>
+        <h2>1. 迭代对象</h2>
+        <ul>
+            <!-- value 属性值  key 属性名  index 下表 -->
+            <li v-for="(value,key,index) in emps[0]" >
+               第{{index+1}}个属性,属性名为：{{key}}，属性值为：{{value}}
+            </li>
+        </ul>
+
+
+    </div>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        var vm = new Vue({
+
+            el: '#app',
+            data: {
+
+                emps: [
+                    { name: '马云', salary: 2000 },
+                    { name: '马化腾', salary: 1800 },
+                    { name: '刘强东', salary: 1600 }
+                ]
+
+
+
+
+
+            }
+
+
+
+
+
+        });
+
+
+    </script>
+</body>
+
+</html>
