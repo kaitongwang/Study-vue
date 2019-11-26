@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过渡效果</title>
+</head>
+
+<body>
+    <style>
+        /* 显示或隐藏的过渡效果*/
+        .mxg-enter-active,
+        .mxg-leave-active {
+            transition: opacity 1s;
+        }
+
+        .mxg-enter,
+        .mxg-leave-to {
+            opacity: 0
+        }
+
+        .meng-enter-active {
+
+            transition: all 1s;
+        }
+
+        .meng-leave-active {
+
+            transition: all 5s;
+        }
+
+        .meng-enter,
+        .meng-leave-to {
+            opacity: 0;
+            transform: translate(10px);
+
+        }
+    </style>
+
+
+<div id  ="app1">
+
+
+    <button @click="show=!show">
+        渐变过程
+    </button>
+    <transition name ="mxg">
+        <p v-if="show"></p>
+         
+    </transition>
+
+</div>
+
+
+
+
+<div id  ="app2">
+
+
+        <button @click="show=!show">
+            渐变过程
+        </button>
+        <transition name ="meng">
+            <p v-if="show"></p>
+             
+        </transition>
+    
+    </div>
+
+
+
+
+
+
+
+
+</body>
+
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+
+var  vue1 = new Vue({
+    el:'#app1',
+    data:{
+        show:true
+    }
+
+
+
+});
+var  vue2 = new Vue({
+    el:'#app2',
+    data:{
+        show:true
+    }
+
+
+
+});
+
+</script>
+</html>
