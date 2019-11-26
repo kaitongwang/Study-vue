@@ -51,12 +51,18 @@
                     console.log(JSON.stringify(requestVo))
                     axios.post(productList, JSON.stringify(requestVo), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } }).then(function (response) {
                         console.log(response);
-                       var data =response.data;
-                        if (data.code == 0) {
-                            console.log(data.result);
-                        } else {
-                            alert(data.meaasge);
+                        if (response.status==200) {
+                            var data = response.data;
+                            if (data.code == 0) {
+                                console.log(data.result);
+                            } else {
+                                alert(data.meaasge);
+                            }
+                        }else{
+                            lo
+                            alert(response.statusText);
                         }
+
                     });
 
 
