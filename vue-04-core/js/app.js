@@ -1,6 +1,43 @@
-(function (window) {
-	'use strict';
+(function (Vue) {//表示依赖了全局的vue
 
-	// Your starting point. Enjoy the ride!
+	//变量不可变，es6语法
+	const items = [
 
-})(window);
+		{
+			id: 1,
+			content: 'vue.js',
+			completed: true
+		},
+		{
+			id: 2,
+			content: 'java',
+			completed: false
+		},
+		{
+			id: 3,
+			content: 'python',
+			completed: false
+		}
+	]
+	new Vue({
+
+
+		el: '#todoapp',
+		data: {
+
+			items //items:items
+
+
+		}
+
+
+
+	})
+
+
+
+
+
+
+
+})(Vue);
