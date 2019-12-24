@@ -42,54 +42,55 @@
                 submitForm: function () {
                     // ajax 请求
 
-                    var requestVo = {
+                    // var requestVo = {
 
-                        limit: this.index,
-                        page: this.page
-                    }
+                    //     limit: this.index,
+                    //     page: this.page
+                    // }
 
-                    console.log(JSON.stringify(requestVo))
-                    axios.post(productList, JSON.stringify(requestVo), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } }).then(function (response) {
-                        console.log(response);
-                        if (response.status==200) {
-                            var data = response.data;
-                            if (data.code == 0) {
-                                console.log(data.result);
-                            } else {
-                                alert(data.meaasge);
-                            }
-                        }else{
-                            lo
-                            alert(response.statusText);
-                        }
-
-                    });
-
-
-
-                    // $.ajax(
-                    //     {
-
-                    //         url:productList,
-                    //         type:'post',
-                    //         data:JSON.stringify(requestVo),
-                    //         contentType:'application/json;charset=UTF-8',
-                    //         success:function(data){
-                    //                 console.log("查询成功");
-                    //                 if(data.code==0){
-                    //                   console.log(data.result);
-                    //                 }else{
-                    //                     alert(data.meaasge);
-                    //                 }
-
+                    // console.log(JSON.stringify(requestVo))
+                    // axios.post(productList, JSON.stringify(requestVo), { headers: { 'Content-Type': 'application/json;charset=UTF-8' } }).then(function (response) {
+                    //     console.log(response);
+                    //     if (response.status==200) {
+                    //         var data = response.data;
+                    //         if (data.code == 0) {
+                    //             console.log(data.result);
+                    //         } else {
+                    //             alert(data.meaasge);
                     //         }
-
-
-
-
-
+                    //     }else{
+                    //         lo
+                    //         alert(response.statusText);
                     //     }
-                    // );
+
+                    // });
+
+                 var data = "2019-12";
+                 
+
+                    $.ajax(
+                        {
+
+                            url:productList +"/"+data,
+                            type:'post',
+                           
+                            contentType:'application/json;charset=UTF-8',
+                            success:function(data){
+                                    console.log("查询成功");
+                                    if(data.code==0){
+                                      console.log(data.result);
+                                    }else{
+                                        alert(data.meaasge);
+                                    }
+
+                            }
+
+
+
+
+
+                        }
+                    );
 
                 }
             }
